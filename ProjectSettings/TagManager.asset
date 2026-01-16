@@ -6,6 +6,8 @@ TagManager:
   tags:
   - SpawnHost
   - SpawnClient
+  - gun1
+  - enemy
   layers:
   - Default
   - TransparentFX
