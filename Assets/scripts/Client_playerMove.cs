@@ -2,11 +2,12 @@ using Unity.Cinemachine;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 public class Client_playerMove : NetworkBehaviour
 {
     [SerializeField] private CarController m_CarController;
-    //[SerializeField] private Transform m_cameraFollow;
+    [SerializeField] private Transform m_cameraFollow;
     [SerializeField] private PlayerInput m_playerInput;
 
     void Awake()
@@ -43,9 +44,9 @@ public class Client_playerMove : NetworkBehaviour
         m_playerInput.enabled = true;
 
 
-        //m_cameraFollow = GameObject.FindGameObjectWithTag("PlayerCamera").transform;
-        //m_cameraFollow.GetComponent<CinemachineVirtualCamera>().Follow = gameObject.transform;
-       // m_cameraFollow.GetComponent<CinemachineVirtualCamera>().LookAt = gameObject.transform;
+        m_cameraFollow = GameObject.FindGameObjectWithTag("PlayerCamera").transform;
+        m_cameraFollow.GetComponent<CinemachineCamera>().Follow = gameObject.transform;
+      // m_cameraFollow.GetComponent<CinemachineCamera>().LookAt = gameObject.transform;
 
 
 

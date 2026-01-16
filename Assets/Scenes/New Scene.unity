@@ -464,7 +464,7 @@ GameObject:
   - component: {fileID: 463776794}
   m_Layer: 0
   m_Name: Main Camera
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -537,7 +537,7 @@ Transform:
   m_GameObject: {fileID: 463776789}
   serializedVersion: 2
   m_LocalRotation: {x: 0.17481945, y: 0.000000029343386, z: -0.000000005210027, w: 0.98460054}
-  m_LocalPosition: {x: -14, y: 14.17, z: -372.1}
+  m_LocalPosition: {x: -14.03, y: 14.12, z: -364.84}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1638,7 +1638,7 @@ GameObject:
   - component: {fileID: 1695395292}
   m_Layer: 0
   m_Name: FreeLook Camera
-  m_TagString: Untagged
+  m_TagString: PlayerCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1862,7 +1862,7 @@ Transform:
   m_GameObject: {fileID: 1695395291}
   serializedVersion: 2
   m_LocalRotation: {x: 0.17481945, y: 0.000000029343386, z: -0.000000005210026, w: 0.98460054}
-  m_LocalPosition: {x: -14, y: 14.17, z: -372.1}
+  m_LocalPosition: {x: -14.03, y: 14.12, z: -364.84}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
