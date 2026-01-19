@@ -957,7 +957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 3245427672
+  GlobalObjectIdHash: 4236653678
   InScenePlacedSourceGlobalObjectIdHash: 1552049397
   DeferredDespawnTick: 0
   Ownership: 1
@@ -1028,9 +1028,9 @@ MonoBehaviour:
   SyncPositionX: 1
   SyncPositionY: 1
   SyncPositionZ: 1
-  SyncRotAngleX: 0
+  SyncRotAngleX: 1
   SyncRotAngleY: 1
-  SyncRotAngleZ: 0
+  SyncRotAngleZ: 1
   SyncScaleX: 0
   SyncScaleY: 0
   SyncScaleZ: 0
@@ -1056,6 +1056,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51e129bff28939947b0b2f24ee681ddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Carguns
+  ShowTopMostFoldoutHeaderGroup: 1
   gun1: {fileID: 3425562068594574072}
   rayorgin: {fileID: 1813832372477537478}
   bulletspawn: {fileID: 1813832372477537478}

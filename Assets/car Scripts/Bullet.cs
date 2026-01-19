@@ -1,34 +1,38 @@
-using System;
-using UnityEditor.Callbacks;
+using Unity.Netcode;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : NetworkBehaviour
 {
-    Rigidbody rb;
-    [SerializeField] public float force = 10;
+    public float speed = 40f;
+    public float lifeTime = 3f;
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void OnNetworkSpawn()
     {
-        rb = GetComponent<Rigidbody>();
-
-
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("enemy"))
+        if (IsServer)
         {
-            Destroy(gameObject);
+            GetComponent<Rigidbody>().linearVelocity = transform.forward * speed;
+            Invoke(nameof(DestroyBullet), lifeTime);
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    void DestroyBullet()
     {
-        rb.AddForce(transform.forward * force, ForceMode.Impulse);
+        GetComponent<NetworkObject>().Despawn();
+    }
 
-        Destroy(gameObject, 10f);
+    void OnCollisionEnter(Collision collision)
+    {
+        if (!IsServer) return;
+
+        if (collision.collider.CompareTag("enemy"))
+        {
+            NetworkObject netObj = collision.collider.GetComponent<NetworkObject>();
+            if (netObj != null)
+            {
+                netObj.Despawn();
+            }
+        }
+
+        GetComponent<NetworkObject>().Despawn();
     }
 }
