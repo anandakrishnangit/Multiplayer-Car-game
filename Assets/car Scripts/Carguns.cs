@@ -11,7 +11,7 @@ public class Carguns : NetworkBehaviour
     public GameObject bulletprefab;
 
     private bool gun1active = false;
-    private float range = 30f;
+    private float range = 70f;
 
     private RaycastHit hit;
 
@@ -25,7 +25,7 @@ public class Carguns : NetworkBehaviour
 
         if (!IsOwner) return;
 
-        if (gun1active && Input.GetKeyDown(KeyCode.Mouse0))
+        if (gun1active && Input.GetKeyDown(KeyCode.F))
         {
             Gun1ShootServerRpc();
         }
@@ -61,9 +61,9 @@ public class Carguns : NetworkBehaviour
     void Gun1ShootServerRpc()
     {
 
-        GameObject bullet = Instantiate(bulletprefab, bulletspawn.position, bulletspawn.rotation);
+        // GameObject bullet = Instantiate(bulletprefab, bulletspawn.position, bulletspawn.rotation);
 
-        bullet.GetComponent<NetworkObject>().Spawn();
+        // bullet.GetComponent<NetworkObject>().Spawn();
 
         ShootRayServer();
     }
@@ -76,8 +76,7 @@ public class Carguns : NetworkBehaviour
         {
             if (hit.collider.CompareTag("enemy"))
             {
-                NetworkObject netObj =
-                    hit.collider.GetComponent<NetworkObject>();
+                NetworkObject netObj = hit.collider.GetComponent<NetworkObject>();
 
                 if (netObj != null)
                 {

@@ -299,13 +299,13 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_Stiffness: 1.5
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 1
+    m_Stiffness: 1.3
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -528,13 +528,13 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_Stiffness: 1.5
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 1
+    m_Stiffness: 1.3
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -903,10 +903,10 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5205933108079382266}
   serializedVersion: 5
-  m_Mass: 1000
+  m_Mass: 400
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_CenterOfMass: {x: 0, y: -1, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
@@ -915,7 +915,7 @@ Rigidbody:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_ImplicitCom: 1
+  m_ImplicitCom: 0
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -942,8 +942,8 @@ MonoBehaviour:
   fRW: {fileID: 240246366101630497}
   rLW: {fileID: 1457841371871125308}
   rRW: {fileID: 9033378173135255917}
-  motorforce: 1000
-  breakforce: 2000
+  motorforce: 6000
+  breakforce: 8000
   steerangle: 35
 --- !u!114 &1065723387318317203
 MonoBehaviour:
@@ -957,7 +957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 4236653678
+  GlobalObjectIdHash: 3245427672
   InScenePlacedSourceGlobalObjectIdHash: 1552049397
   DeferredDespawnTick: 0
   Ownership: 1
@@ -984,6 +984,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Client_playerMove
   ShowTopMostFoldoutHeaderGroup: 1
   m_CarController: {fileID: 7932430938789175486}
+  m_cameraFollow: {fileID: 0}
   m_playerInput: {fileID: 4337682849778695401}
 --- !u!114 &6254662845351007366
 MonoBehaviour:
@@ -1239,13 +1240,13 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_Stiffness: 1.5
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 1
+    m_Stiffness: 1.3
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1310,13 +1311,13 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_Stiffness: 1.5
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 1
+    m_Stiffness: 1.3
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
