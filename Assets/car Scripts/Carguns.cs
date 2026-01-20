@@ -46,7 +46,7 @@ public class Carguns : NetworkBehaviour
             if (netobj != null)
             {
                 netobj.Despawn();
-                Debug.Log("[HOST] Gun despawned.");
+
                 // Destroy(other.gameObject);
             }
 
@@ -83,18 +83,18 @@ public class Carguns : NetworkBehaviour
 
             NetworkObject netObj = hit.collider.GetComponentInParent<NetworkObject>();
 
-            // if (netObj != null)
-            // {
-            //     netObj.Despawn();
-            // }
             if (netObj != null)
             {
-                Carhealth health = GetComponent<Carhealth>();
-                if (health != null)
-                {
-                    health.Takedamage(10);
-                }
+                netObj.Despawn();
             }
+            // if (netObj != null)
+            // {
+            //     Carhealth health = GetComponent<Carhealth>();
+            //     if (health != null)
+            //     {
+            //         health.Takedamage(10);
+            //     }
+            // }
         }
     }
 
