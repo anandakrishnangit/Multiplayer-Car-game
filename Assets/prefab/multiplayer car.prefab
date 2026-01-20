@@ -840,6 +840,7 @@ GameObject:
   - component: {fileID: 6254662845351007366}
   - component: {fileID: 6263240617556379535}
   - component: {fileID: 2902170135263908166}
+  - component: {fileID: 6714191725906950113}
   m_Layer: 0
   m_Name: multiplayer car
   m_TagString: Untagged
@@ -943,7 +944,7 @@ MonoBehaviour:
   rLW: {fileID: 1457841371871125308}
   rRW: {fileID: 9033378173135255917}
   motorforce: 6000
-  breakforce: 8000
+  breakforce: 10000
   steerangle: 35
 --- !u!114 &1065723387318317203
 MonoBehaviour:
@@ -1060,8 +1061,22 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   gun1: {fileID: 3425562068594574072}
   rayorgin: {fileID: 1813832372477537478}
-  bulletspawn: {fileID: 1813832372477537478}
-  bulletprefab: {fileID: 5838943223714331499, guid: defec0d21a137c545abeba4ed9c6dbbf, type: 3}
+--- !u!114 &6714191725906950113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5205933108079382266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2053bf0296d61142985668c9c1bc442, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Carhealth
+  ShowTopMostFoldoutHeaderGroup: 1
+  maxhealth: 100
+  currenthealth:
+    m_InternalValue: 0
 --- !u!1 &5595433760008754223
 GameObject:
   m_ObjectHideFlags: 0

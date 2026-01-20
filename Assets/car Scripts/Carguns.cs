@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Carguns : NetworkBehaviour
 {
-    [Header("Gun Settings")]
+
     public GameObject gun1;
     public Transform rayorgin;
-    public Transform bulletspawn;
-    public GameObject bulletprefab;
+
+
+
 
     private bool gun1active = false;
     private float range = 70f;
@@ -18,30 +19,37 @@ public class Carguns : NetworkBehaviour
     void Start()
     {
         gun1.SetActive(false);
+
     }
 
     void Update()
     {
-
         if (!IsOwner) return;
 
         if (gun1active && Input.GetKeyDown(KeyCode.F))
         {
-            Gun1ShootServerRpc();
+
+            Gun1ShootServerRpc(rayorgin.position, rayorgin.forward);
         }
 
         Debug.DrawRay(rayorgin.position, rayorgin.forward * range, Color.red);
     }
 
-
     void OnTriggerEnter(Collider other)
     {
-
         if (!IsServer) return;
 
         if (other.CompareTag("gun1"))
         {
             ActivateGunClientRpc();
+            NetworkObject netobj = other.GetComponentInParent<NetworkObject>();
+            if (netobj != null)
+            {
+                netobj.Despawn();
+                Debug.Log("[HOST] Gun despawned.");
+                // Destroy(other.gameObject);
+            }
+
         }
     }
 
@@ -57,30 +65,34 @@ public class Carguns : NetworkBehaviour
     }
 
 
+
     [ServerRpc]
-    void Gun1ShootServerRpc()
+    void Gun1ShootServerRpc(Vector3 origin, Vector3 direction)
     {
-
-        // GameObject bullet = Instantiate(bulletprefab, bulletspawn.position, bulletspawn.rotation);
-
-        // bullet.GetComponent<NetworkObject>().Spawn();
-
-        ShootRayServer();
+        ShootRayServer(origin, direction);
     }
 
-    void ShootRayServer()
+    void ShootRayServer(Vector3 origin, Vector3 direction)
     {
         if (!IsServer) return;
 
-        if (Physics.Raycast(rayorgin.position, rayorgin.forward, out hit, range))
+        if (Physics.Raycast(origin, direction, out hit, range))
         {
-            if (hit.collider.CompareTag("enemy"))
-            {
-                NetworkObject netObj = hit.collider.GetComponent<NetworkObject>();
+            Debug.Log("Hit: " + hit.collider.name);
 
-                if (netObj != null)
+
+            NetworkObject netObj = hit.collider.GetComponentInParent<NetworkObject>();
+
+            // if (netObj != null)
+            // {
+            //     netObj.Despawn();
+            // }
+            if (netObj != null)
+            {
+                Carhealth health = GetComponent<Carhealth>();
+                if (health != null)
                 {
-                    netObj.Despawn();
+                    health.Takedamage(10);
                 }
             }
         }
