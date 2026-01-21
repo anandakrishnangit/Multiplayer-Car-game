@@ -33,6 +33,8 @@ public class CarController : MonoBehaviour
     {
         fLW.motorTorque = verticalInput * motorforce;
         fRW.motorTorque = verticalInput * motorforce;
+        rLW.motorTorque = verticalInput * motorforce;
+        rRW.motorTorque = verticalInput * motorforce;
         current_breakforce = isbreaking ? breakforce : 0f;
     }
     void Breaking()

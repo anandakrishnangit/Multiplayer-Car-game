@@ -8,6 +8,7 @@ TagManager:
   - SpawnClient
   - gun1
   - PlayerCamera
+  - enemy
   layers:
   - Default
   - TransparentFX

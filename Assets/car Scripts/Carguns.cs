@@ -1,44 +1,54 @@
 using System.Collections;
-using Unity.Mathematics;
+using Unity.Netcode;
 using UnityEngine;
 
-public class Carguns : MonoBehaviour
+public class Carguns : NetworkBehaviour
 {
-    public GameObject gun1;
-    bool gun1active = false;
-    public RaycastHit hit;
-    public Transform rayorgin;
-    [SerializeField] public Transform bulletspawn;
-    [SerializeField] public GameObject bulletprefab;
-    float range = 30;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public GameObject gun1;
+    public Transform rayorgin;
+
+
+
+
+    private bool gun1active = false;
+    private float range = 70f;
+
+    private RaycastHit hit;
+
     void Start()
     {
         gun1.SetActive(false);
+
     }
 
-    // Update is called once per frame
     void Update()
     {
+        if (!IsOwner) return;
 
-        if (gun1active == true)
+        if (gun1active && Input.GetKeyDown(KeyCode.F))
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
-            {
-                Gun1Shoot();
-                ShootRay();
-            }
 
-            Debug.DrawRay(rayorgin.position, rayorgin.forward * range, Color.red);
+            Gun1ShootServerRpc(rayorgin.position, rayorgin.forward);
         }
 
+        Debug.DrawRay(rayorgin.position, rayorgin.forward * range, Color.red);
     }
+
     void OnTriggerEnter(Collider other)
     {
+        if (!IsServer) return;
+
         if (other.CompareTag("gun1"))
         {
-            StartCoroutine(GunActivation());
+            ActivateGunClientRpc();
+            NetworkObject netobj = other.GetComponentInParent<NetworkObject>();
+            if (netobj != null)
+            {
+                netobj.Despawn();
+
+                // Destroy(other.gameObject);
+            }
 
         }
     }
@@ -47,23 +57,51 @@ public class Carguns : MonoBehaviour
     {
         gun1.SetActive(true);
         gun1active = true;
+
         yield return new WaitForSeconds(20f);
+
         gun1.SetActive(false);
         gun1active = false;
     }
 
-    void Gun1Shoot()
+
+
+    [ServerRpc]
+    void Gun1ShootServerRpc(Vector3 origin, Vector3 direction)
     {
-        GameObject bullet1 = Instantiate(bulletprefab, bulletspawn.position, Quaternion.identity);
+        ShootRayServer(origin, direction);
     }
-    void ShootRay()
+
+    void ShootRayServer(Vector3 origin, Vector3 direction)
     {
-        if (Physics.Raycast(rayorgin.position, rayorgin.forward, out hit, range))
+        if (!IsServer) return;
+
+        if (Physics.Raycast(origin, direction, out hit, range))
         {
-            if (hit.collider.CompareTag("enemy"))
+            Debug.Log("Hit: " + hit.collider.name);
+
+
+            NetworkObject netObj = hit.collider.GetComponentInParent<NetworkObject>();
+
+            if (netObj != null)
             {
-                Destroy(hit.collider.gameObject);
+                netObj.Despawn();
             }
+            // if (netObj != null)
+            // {
+            //     Carhealth health = GetComponent<Carhealth>();
+            //     if (health != null)
+            //     {
+            //         health.Takedamage(10);
+            //     }
+            // }
         }
+    }
+
+
+    [ClientRpc]
+    void ActivateGunClientRpc()
+    {
+        StartCoroutine(GunActivation());
     }
 }
