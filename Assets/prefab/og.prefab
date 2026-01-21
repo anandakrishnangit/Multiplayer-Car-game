@@ -821,9 +821,9 @@ MonoBehaviour:
   fRW: {fileID: 7544831099155468744}
   rLW: {fileID: 638402161426991531}
   rRW: {fileID: 6460703174783196424}
-  motorforce: 6000
+  motorforce: 100
   breakforce: 10000
-  steerangle: 35
+  steerangle: 45
 --- !u!114 &5405215022507532695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -836,7 +836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 1238627141
+  GlobalObjectIdHash: 793513480
   InScenePlacedSourceGlobalObjectIdHash: 1552049397
   DeferredDespawnTick: 0
   Ownership: 1
