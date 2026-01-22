@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
+
+    public Material brakeLight;
+
+
     public Transform frontLeftWheel;
     public Transform frontRightWheel;
     public Transform rearLefttWheel;
@@ -22,11 +26,22 @@ public class CarController : MonoBehaviour
     float current_breakforce;
     bool isbreaking;
 
+
+
     void GetInput()
     {
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
         isbreaking = Input.GetKey(KeyCode.Space);
+        if (isbreaking)
+        {
+            BrakeLightOn();
+        }
+        else
+        {
+            BrakeLightOff();
+        }
+
     }
 
     void Acceleration()
@@ -85,4 +100,18 @@ public class CarController : MonoBehaviour
         Steering();
         SetWheel();
     }
+    public void BrakeLightOn()
+    {
+        // brakeLight.EnableKeyword("_EMISSION");
+        // brakeLight.SetColor("_EmissionColor", Color.red * 6f);
+        brakeLight.color = Color.red;
+    }
+
+    public void BrakeLightOff()
+    {
+        // brakeLight.SetColor("_EmissionColor", Color.white);
+        brakeLight.color = Color.white;
+    }
+
+
 }
