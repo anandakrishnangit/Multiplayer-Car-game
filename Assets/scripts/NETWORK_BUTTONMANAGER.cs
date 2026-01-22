@@ -1,7 +1,7 @@
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class NETWORK_BUTTONMANAGER : MonoBehaviour
 {
     public Button StartHostButton;
@@ -23,10 +23,13 @@ public class NETWORK_BUTTONMANAGER : MonoBehaviour
     void StartHost()
     {
         NetworkManager.Singleton.StartHost();
+
+
     }
     void StartClient()
     {
         NetworkManager.Singleton.StartClient();
+
     }
     void StartServer()
     {
