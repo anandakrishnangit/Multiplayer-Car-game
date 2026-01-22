@@ -9,6 +9,9 @@ TagManager:
   - gun1
   - PlayerCamera
   - enemy
+  - Target
+  - panel
+  - WINTEXT
   layers:
   - Default
   - TransparentFX

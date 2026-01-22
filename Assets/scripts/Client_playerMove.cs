@@ -18,13 +18,13 @@ public class Client_playerMove : NetworkBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     public override void OnNetworkSpawn()
     {
@@ -32,24 +32,45 @@ public class Client_playerMove : NetworkBehaviour
         enabled = IsClient;
 
 
+
         if (!IsOwner)
         {
             enabled = false;
-            m_CarController.enabled = false;         
+            m_CarController.enabled = false;
             m_playerInput.enabled = false;
             return;
         }
 
-        m_CarController.enabled = true;       
+        m_CarController.enabled = true;
         m_playerInput.enabled = true;
 
 
         m_cameraFollow = GameObject.FindGameObjectWithTag("PlayerCamera").transform;
         m_cameraFollow.GetComponent<CinemachineCamera>().Follow = gameObject.transform;
-      // m_cameraFollow.GetComponent<CinemachineCamera>().LookAt = gameObject.transform;
 
-
+        
+        
+            NetworkManager.Singleton.OnClientConnectedCallback += Singleton_OnClientConnectedCallback;
+        
 
 
     }
+
+    private void Singleton_OnClientConnectedCallback(ulong obj)
+    {
+        if (NetworkManager.Singleton.ConnectedClientsList.Count == 2)
+        {
+            TriggerOnGameStartedRpc();
+        }
+
+
+    }
+    [Rpc(SendTo.ClientsAndHost)]
+    public void TriggerOnGameStartedRpc()
+    {
+        m_CarController.StartCar();
+        Debug.Log("Command recieved");
+    }
+
+
 }

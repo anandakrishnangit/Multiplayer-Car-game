@@ -21,9 +21,15 @@ public class CarController : MonoBehaviour
     float current_steerangle;
     float current_breakforce;
     bool isbreaking;
+    public bool bothplayerConnected = false;
 
     void GetInput()
     {
+        if(bothplayerConnected==false)
+        {
+            return;
+        }
+
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
         isbreaking = Input.GetKey(KeyCode.Space);
@@ -84,5 +90,11 @@ public class CarController : MonoBehaviour
         Breaking();
         Steering();
         SetWheel();
+    }
+
+    public void StartCar()
+    {
+        bothplayerConnected = true;
+        Debug.Log("Car started");
     }
 }

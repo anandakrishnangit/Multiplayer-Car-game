@@ -718,11 +718,11 @@ GameObject:
   - component: {fileID: 4004087147190374114}
   - component: {fileID: 5405215022507532695}
   - component: {fileID: 8865072263546719133}
-  - component: {fileID: 8826193958662623333}
   - component: {fileID: 3102487725078668538}
+  - component: {fileID: 6745926753089037895}
   m_Layer: 0
   m_Name: og
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -824,6 +824,7 @@ MonoBehaviour:
   motorforce: 100
   breakforce: 10000
   steerangle: 45
+  bothplayerConnected: 0
 --- !u!114 &5405215022507532695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -865,19 +866,6 @@ MonoBehaviour:
   m_CarController: {fileID: 4004087147190374114}
   m_cameraFollow: {fileID: 0}
   m_playerInput: {fileID: 2146008288833323729}
---- !u!114 &8826193958662623333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4939413125097077688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 098488497ad76eb47b3f9481329c6fd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MultiplayerSpwn
-  ShowTopMostFoldoutHeaderGroup: 1
 --- !u!114 &3102487725078668538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -924,6 +912,19 @@ MonoBehaviour:
   SwitchTransformSpaceWhenParented: 0
   Interpolate: 1
   SlerpPosition: 0
+--- !u!114 &6745926753089037895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4939413125097077688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 098488497ad76eb47b3f9481329c6fd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MultiplayerSpwn
+  ShowTopMostFoldoutHeaderGroup: 1
 --- !u!1 &5174109308044692020
 GameObject:
   m_ObjectHideFlags: 0
