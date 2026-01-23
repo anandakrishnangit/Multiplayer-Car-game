@@ -1,7 +1,16 @@
+using NUnit.Framework;
 using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
+    public AudioSource caraudio;
+    public AudioSource carbreak;
+    public AudioClip idle;
+
+    public AudioClip run;
+    public AudioClip breaksound;
+    public float minpitch;
+    public float maxpitch;
 
     public Material brakeLight;
 
@@ -25,6 +34,9 @@ public class CarController : MonoBehaviour
     float current_steerangle;
     float current_breakforce;
     bool isbreaking;
+    Rigidbody rb;
+    bool isbreak;
+
 
 
 
@@ -36,10 +48,17 @@ public class CarController : MonoBehaviour
         if (isbreaking)
         {
             BrakeLightOn();
+            if (!isbreak)
+            {
+                carbreak.PlayOneShot(breaksound);
+                isbreak = true;
+            }
         }
         else
         {
             BrakeLightOff();
+            isbreak = false;
+
         }
 
 
@@ -89,6 +108,7 @@ public class CarController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
 
     }
 
@@ -100,6 +120,8 @@ public class CarController : MonoBehaviour
         Breaking();
         Steering();
         SetWheel();
+        Enginesound();
+        UpdateDamping();
     }
     public void BrakeLightOn()
     {
@@ -113,6 +135,46 @@ public class CarController : MonoBehaviour
         // brakeLight.SetColor("_EmissionColor", Color.white);
         brakeLight.color = Color.white;
     }
+
+    void Enginesound()
+    {
+        float speed = rb.linearVelocity.magnitude * 3.6f;
+        float speed1 = Mathf.InverseLerp(0f, 100f, speed);
+        // float speed = Mathf.Abs(verticalInput);
+
+        if (speed < 0.1)
+        {
+
+            if (caraudio.clip != idle)
+            {
+                caraudio.clip = idle;
+                caraudio.Play();
+            }
+            caraudio.pitch = Mathf.Lerp(caraudio.pitch, minpitch, Time.deltaTime * 1f);
+        }
+
+        else
+        {
+            if (caraudio.clip != run)
+            {
+                caraudio.clip = run;
+                caraudio.Play();
+            }
+            caraudio.pitch = Mathf.Lerp(caraudio.pitch, Mathf.Lerp(minpitch, maxpitch, speed1), Time.deltaTime * (verticalInput == 0 ? 6f : 2f));
+        }
+    }
+    void UpdateDamping()
+    {
+
+
+        float LD = verticalInput != 0 ? 0 : .6f;
+        float AD = verticalInput != 0 ? 0.05f : .5f;
+
+        rb.linearDamping = Mathf.Lerp(rb.linearDamping, LD, Time.deltaTime * 5f);
+        rb.angularDamping = Mathf.Lerp(rb.angularDamping, AD, Time.deltaTime * 5f);
+
+    }
+
 
 
 }
