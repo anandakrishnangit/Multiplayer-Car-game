@@ -7,6 +7,7 @@ public class HitCube :NetworkBehaviour
     public NetworkVariable<int> m_HitCount = new NetworkVariable<int>(0);
     public NetworkVariable<int> m_HostCount = new NetworkVariable<int>(0);
     public NetworkVariable<int> m_ClientCount = new NetworkVariable<int>(0);
+    public int winHits = 3;
 
     public override void OnNetworkSpawn()
     {
@@ -35,7 +36,20 @@ public class HitCube :NetworkBehaviour
             {
                 AddHitServerRpc(networkObject.OwnerClientId);
             }
+            CheckWin();
         }
+    }
+    void CheckWin()
+    {
+        if (m_HostCount.Value >= winHits)
+        {
+            GameResult.Instance.SetResultClientRpc("HOST WIN");
+        }
+        if (m_ClientCount.Value >= winHits)
+        {
+            GameResult.Instance.SetResultClientRpc("CLIENT WIN");
+        }
+            
     }
 
     [Rpc(SendTo.Server)]
