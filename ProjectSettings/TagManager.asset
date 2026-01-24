@@ -9,6 +9,7 @@ TagManager:
   - gun1
   - PlayerCamera
   - enemy
+  - Detect
   layers:
   - Default
   - TransparentFX
