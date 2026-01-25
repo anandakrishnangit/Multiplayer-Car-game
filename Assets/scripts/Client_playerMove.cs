@@ -46,7 +46,7 @@ public class Client_playerMove : NetworkBehaviour
 
         m_cameraFollow = GameObject.FindGameObjectWithTag("PlayerCamera").transform;
         m_cameraFollow.GetComponent<CinemachineCamera>().Follow = gameObject.transform;
-      // m_cameraFollow.GetComponent<CinemachineCamera>().LookAt = gameObject.transform;
+     
 
 
 
