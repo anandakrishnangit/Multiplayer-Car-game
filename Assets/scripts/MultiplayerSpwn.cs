@@ -6,10 +6,21 @@ using UnityEngine;
 public class MultiplayerSpwn : NetworkBehaviour
 {
     Rigidbody rb;
+    public static NetworkVariable<int> carsSpawned = new NetworkVariable<int>(0);
+    public static NetworkVariable<bool> started = new NetworkVariable<bool>(false);
+
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
         rb.isKinematic = true;
+    }
+
+    void Update()
+    {
+        if (started.Value && rb.isKinematic)
+        {
+            rb.isKinematic = false;
+        }
     }
     public override void OnNetworkSpawn()
     {
@@ -20,7 +31,7 @@ public class MultiplayerSpwn : NetworkBehaviour
             StartCoroutine(Spawn());
 
         }
-        StartCoroutine(Onphysics());
+        // StartCoroutine(Onphysics());
 
 
     }
@@ -37,17 +48,21 @@ public class MultiplayerSpwn : NetworkBehaviour
         yield return new WaitForSeconds(5f);
 
 
-        rb.isKinematic = false;
+        // rb.isKinematic = false;
+        if (IsServer)
+        {
+            carsSpawned.Value++;
+        }
 
 
     }
 
 
 
-    IEnumerator Onphysics()
-    {
-        yield return new WaitForSeconds(5f);
+    // IEnumerator Onphysics()
+    // {
+    //     yield return new WaitForSeconds(5f);
 
-        rb.isKinematic = false;
-    }
+    //     rb.isKinematic = false;
+    // }
 }

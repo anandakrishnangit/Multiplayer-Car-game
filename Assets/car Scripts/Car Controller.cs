@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using Unity.Netcode;
 using UnityEngine;
 
 public class CarController : MonoBehaviour
@@ -42,6 +43,7 @@ public class CarController : MonoBehaviour
 
     void GetInput()
     {
+
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
         isbreaking = Input.GetKey(KeyCode.Space);
