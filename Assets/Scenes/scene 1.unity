@@ -246,7 +246,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -27.541805, y: 58.629013}
+  m_AnchoredPosition: {x: -27.541805, y: -46}
   m_SizeDelta: {x: 205.7575, y: 74.9024}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &112811125
@@ -356,6 +356,7 @@ GameObject:
   - component: {fileID: 152704805}
   - component: {fileID: 152704808}
   - component: {fileID: 152704809}
+  - component: {fileID: 152704810}
   m_Layer: 0
   m_Name: SCENE MANAGER
   m_TagString: Untagged
@@ -515,6 +516,19 @@ MonoBehaviour:
   SyncOwnerTransformWhenParented: 1
   AllowOwnerToParent: 0
 --- !u!114 &152704809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152704804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12893b48f63eefb4cba57cddf71badeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HomeScreenUI
+  ShowTopMostFoldoutHeaderGroup: 1
+--- !u!114 &152704810
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -975,7 +989,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -27.542, y: -44}
+  m_AnchoredPosition: {x: -27.542, y: -148.62903}
   m_SizeDelta: {x: 182.8788, y: 79.0449}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1196854356
@@ -1095,7 +1109,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -27.542, y: -147}
+  m_AnchoredPosition: {x: -27.542, y: -251.62903}
   m_SizeDelta: {x: 182.8788, y: 79.0449}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1622632924
@@ -1141,7 +1155,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1622632925}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 152704810}
+        m_TargetAssemblyTypeName: HomeScreenUI, Assembly-CSharp
+        m_MethodName: QuitFromApplicaion
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1622632925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1228,10 +1254,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3

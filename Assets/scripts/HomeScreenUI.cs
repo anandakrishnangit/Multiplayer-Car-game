@@ -8,4 +8,17 @@ public class HomeScreenUI :NetworkBehaviour
    {
        SceneManager.LoadScene(2);
    }
+
+    public void QuitToHome()
+    {
+        SceneManager.LoadScene(0);
+    }
+    public void QuitFromApplicaion()
+    {
+        Application.Quit();
+    }
+    public void ToggleAudio()
+    {
+        AudioListener.pause = !AudioListener.pause;
+    }
 }
