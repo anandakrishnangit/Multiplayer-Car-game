@@ -1,14 +1,34 @@
+using TMPro;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class HitCube :NetworkBehaviour
+public class HitCube : NetworkBehaviour
 {
+    public TextMeshProUGUI laptext;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public NetworkVariable<int> m_HitCount = new NetworkVariable<int>(0);
     public NetworkVariable<int> m_HostCount = new NetworkVariable<int>(0);
     public NetworkVariable<int> m_ClientCount = new NetworkVariable<int>(0);
-    public int winHits = 3;
+    public int winHits = 2;
 
+
+
+
+    void Update()
+    {
+        if (laptext == null || !IsSpawned) return;
+        if (IsHost)
+        {
+            laptext.text = "Lap: " + m_HostCount.Value;
+        }
+        else if (IsClient)
+        {
+            laptext.text = "Lap: " + m_ClientCount.Value;
+        }
+
+
+    }
     public override void OnNetworkSpawn()
     {
         base.OnNetworkSpawn();
@@ -49,7 +69,7 @@ public class HitCube :NetworkBehaviour
         {
             GameResult.Instance.SetResultClientRpc("CLIENT WIN");
         }
-            
+
     }
 
     [Rpc(SendTo.Server)]
