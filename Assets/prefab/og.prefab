@@ -1086,7 +1086,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 793513480
+  GlobalObjectIdHash: 2341092944
   InScenePlacedSourceGlobalObjectIdHash: 1552049397
   DeferredDespawnTick: 0
   Ownership: 1
@@ -1111,7 +1111,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a4d548564010ab45b405a752d791a1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarController
-  ShowTopMostFoldoutHeaderGroup: 1
   caraudio: {fileID: 903021745693763149}
   carbreak: {fileID: 5958589030434275459}
   idle: {fileID: 8300000, guid: 91cea1ef6b2a66e46b7e0c4083dbca4e, type: 3}
