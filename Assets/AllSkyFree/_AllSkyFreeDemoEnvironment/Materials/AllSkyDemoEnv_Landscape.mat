@@ -122,7 +122,7 @@ Material:
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _RimAmount: 3.93
-    - _Smoothness: 0.376
+    - _Smoothness: 0.107
     - _SmoothnessTextureChannel: 0
     - _SnowLevel: 0.242
     - _SpecularHighlights: 1
@@ -136,8 +136,8 @@ Material:
     - _XRMotionVectorsPass: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.88235295, g: 0.88235295, b: 0.88235295, a: 0.83367205}
-    - _Color: {r: 0.88235295, g: 0.88235295, b: 0.88235295, a: 0.83367205}
+    - _BaseColor: {r: 0.8867924, g: 0.8867924, b: 0.8867924, a: 0.83367205}
+    - _Color: {r: 0.8867924, g: 0.8867924, b: 0.8867924, a: 0.83367205}
     - _DiffuseColour: {r: 0.58823526, g: 0.55900246, b: 0.52768165, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _RimColour: {r: 0, g: 0, b: 0, a: 1}
