@@ -11154,6 +11154,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1575256485}
+        m_TargetAssemblyTypeName: MouseLock, Assembly-CSharp
+        m_MethodName: UnlockCursor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &446000021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31779,6 +31791,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1575256485}
+        m_TargetAssemblyTypeName: MouseLock, Assembly-CSharp
+        m_MethodName: LockCursor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1509431234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33879,6 +33903,7 @@ GameObject:
   - component: {fileID: 1575256482}
   - component: {fileID: 1575256483}
   - component: {fileID: 1575256484}
+  - component: {fileID: 1575256485}
   m_Layer: 0
   m_Name: GAME Result
   m_TagString: Untagged
@@ -33954,6 +33979,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HomeScreenUI
   ShowTopMostFoldoutHeaderGroup: 1
+--- !u!114 &1575256485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1575256480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b896f0b6fe0f4c742a1f0ac683d04804, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MouseLock
 --- !u!1001 &1576239883
 PrefabInstance:
   m_ObjectHideFlags: 0
