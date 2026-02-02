@@ -21,4 +21,8 @@ public class HomeScreenUI :NetworkBehaviour
     {
         AudioListener.pause = !AudioListener.pause;
     }
+    public void SettingsUI()
+    {
+        SceneManager.LoadScene(3);
+    }
 }
